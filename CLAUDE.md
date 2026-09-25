@@ -109,24 +109,10 @@ one, so future sessions know where we are.
 
 ## Progress log
 
-- [ ] 01 - Dependency Injection
-- [ ] 02 - Repository (+ Unit of Work)
-- [ ] 03 - Strategy
-- [ ] 04 - Factory
-- [ ] 05 - Decorator
-- [ ] 06 - Builder
-- [ ] 07 - Adapter
-- [ ] 08 - Observer
-- [ ] 09 - Mediator / CQRS
-- [ ] 10 - Chain of Responsibility
-- [ ] 11 - Singleton
-- [ ] 12 - Facade
-- [ ] 13 - Template Method
-- [ ] 14 - Specification
-- [ ] 15+ - Tier 3 patterns (pick as needed)
-
-(Keep this checklist current — tick items off and add a one-line note on any
-deviation from the plan, e.g. "skipped Facade, learner already knew it".)
+Tracked in `PROGRESS.md`, not here, so there's a single source of truth.
+Check that file at the start of a session to see exactly which step of which
+pattern we're on. Update it as steps complete — don't duplicate its content
+back into this file.
 
 ## Tech conventions
 
