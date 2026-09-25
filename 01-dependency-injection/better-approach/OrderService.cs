@@ -5,8 +5,8 @@ public class OrderService
     // OrderService reaches out and builds its own dependencies.
     // It decides *what* logger and *what* notifier to use, not just
     // *how* to use them.
-    private readonly ConsoleLogger _logger = new();
-    private readonly EmailNotifier _notifier = new();
+    private readonly IAppLogger _logger = new ConsoleLogger();
+    private readonly INotifier _notifier = new EmailNotifier();
 
     public void ProcessOrder(Order order)
     {
