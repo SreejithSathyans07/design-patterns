@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/01-dependency-injection/" />
+  <Folder Name="/01-dependency-injection/bad-approach/">
+    <Project Path="01-dependency-injection/bad-approach/BadApproach.csproj" />
+  </Folder>
+  <Folder Name="/01-dependency-injection/better-approach/">
+    <Project Path="01-dependency-injection/better-approach/BetterApproach.csproj" />
+  </Folder>
+</Solution>
