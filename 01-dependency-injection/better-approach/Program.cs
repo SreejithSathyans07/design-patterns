@@ -8,5 +8,5 @@ var order = new Order
     Total = 249.99m
 };
 
-var orderService = new OrderService();
+var orderService = new OrderService(new ConsoleLogger(), new EmailNotifier());
 orderService.ProcessOrder(order);

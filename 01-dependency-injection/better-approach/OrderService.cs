@@ -2,11 +2,14 @@ namespace BetterApproach;
 
 public class OrderService
 {
-    // OrderService reaches out and builds its own dependencies.
-    // It decides *what* logger and *what* notifier to use, not just
-    // *how* to use them.
-    private readonly IAppLogger _logger = new ConsoleLogger();
-    private readonly INotifier _notifier = new EmailNotifier();
+    private readonly IAppLogger _logger;
+    private readonly INotifier _notifier;
+
+    public OrderService(IAppLogger logger, INotifier notifier)
+    {   
+        _logger = logger;
+        _notifier = notifier;
+    }
 
     public void ProcessOrder(Order order)
     {
