@@ -1,8 +1,8 @@
 namespace BetterApproach;
 
-public class EmailNotifier
+public class EmailNotifier: INotifier
 {
-    public void Send(string toAddress, string message)
+    public void Notify(string toAddress, string message)
     {
         // Pretend this actually talks to an SMTP server.
         Console.WriteLine($"[EMAIL to {toAddress}] {message}");

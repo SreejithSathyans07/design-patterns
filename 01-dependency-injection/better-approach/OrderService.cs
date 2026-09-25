@@ -16,7 +16,7 @@ public class OrderService
         _logger.Log($"Charging ${order.Total} to credit card...");
         _logger.Log("Payment successful.");
 
-        _notifier.Send(
+        _notifier.Notify(
             order.CustomerEmail,
             $"Hi {order.CustomerName}, your order #{order.Id} for ${order.Total} has been placed!");
 

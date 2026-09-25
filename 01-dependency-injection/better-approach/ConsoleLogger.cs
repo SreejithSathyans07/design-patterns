@@ -1,6 +1,6 @@
 namespace BetterApproach;
 
-public class ConsoleLogger
+public class ConsoleLogger: IAppLogger
 {
     public void Log(string message)
     {
