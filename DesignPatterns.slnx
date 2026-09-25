@@ -3,6 +3,9 @@
   <Folder Name="/01-dependency-injection/bad-approach/">
     <Project Path="01-dependency-injection/bad-approach/BadApproach.csproj" />
   </Folder>
+  <Folder Name="/01-dependency-injection/better-approach.Tests/">
+    <Project Path="01-dependency-injection/better-approach.Tests/BetterApproach.Tests.csproj" />
+  </Folder>
   <Folder Name="/01-dependency-injection/better-approach/">
     <Project Path="01-dependency-injection/better-approach/BetterApproach.csproj" />
   </Folder>
