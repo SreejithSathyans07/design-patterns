@@ -25,11 +25,24 @@ else without looking it up.
 
 ## 02 - Repository (+ Unit of Work)
 
-- [ ] `bad-approach` scaffolded
-- [ ] `better-approach` copied and refactored
-- [ ] Tests added
-- [ ] README filled in
-- [ ] **Pattern complete**
+- [ ] `bad-approach` scaffolded (OrderService owns a raw static `List<Order>`
+      with inline CRUD logic; OrderReportService duplicates its own
+      hand-rolled query logic directly against that same list)
+- [ ] `better-approach` started as an exact copy of `bad-approach`
+- [ ] Step 1: extracted `IOrderRepository` interface (the operations both
+      OrderService and OrderReportService actually need)
+- [ ] Step 2: moved storage + query logic into `InMemoryOrderRepository`
+- [ ] Step 3: injected `IOrderRepository` into `OrderService` and
+      `OrderReportService` via constructor (reusing DI from pattern 01)
+- [ ] Discussed Unit of Work - when multiple repository changes need to
+      commit together, and why we do/don't need it for this example
+- [ ] `better-approach.Tests` project created, referencing `better-approach`
+- [ ] Unit tests written using a fake `IOrderRepository`, without any real
+      storage or duplicated query logic
+- [ ] `02-repository-pattern/README.md` filled in
+- [ ] **Pattern complete** - comfortable explaining why Repository removes
+      duplication and enables swapping storage without touching business
+      logic
 
 ## 03 - Strategy
 

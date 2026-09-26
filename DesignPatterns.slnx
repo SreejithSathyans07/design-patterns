@@ -9,4 +9,11 @@
   <Folder Name="/01-dependency-injection/better-approach/">
     <Project Path="01-dependency-injection/better-approach/BetterApproach.csproj" />
   </Folder>
+  <Folder Name="/02-repository-pattern/" />
+  <Folder Name="/02-repository-pattern/bad-approach/">
+    <Project Path="02-repository-pattern/bad-approach/BadApproach.csproj" />
+  </Folder>
+  <Folder Name="/02-repository-pattern/better-approach/">
+    <Project Path="02-repository-pattern/better-approach/BetterApproach.csproj" />
+  </Folder>
 </Solution>
