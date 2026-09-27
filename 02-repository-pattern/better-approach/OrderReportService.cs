@@ -9,9 +9,21 @@ public class OrderReportService
     }
     // Gets orders through the same IOrderRepository OrderService uses - no
     // more reaching into OrderService's storage or duplicating lookup logic.
+    //
+    // Each "Print..." method is split into a computation (returns a real
+    // value, so it's testable without capturing Console output) and a thin
+    // wrapper that just prints the result - the same untestable-Console
+    // smell we called out in bad-approach back in pattern 01.
+    public List<Order> GetActiveOrdersFor(string customerName)
+    {
+        return _orderRepo.GetOrdersByCustomer(customerName)
+            .Where(o => o.Status != OrderStatus.Cancelled)
+            .ToList();
+    }
+
     public void PrintActiveOrdersFor(string customerName)
     {
-        var activeOrders = _orderRepo.GetOrdersByCustomer(customerName).Where(o => o.Status != OrderStatus.Cancelled);
+        var activeOrders = GetActiveOrdersFor(customerName);
         Console.WriteLine($"Active orders for {customerName}:");
         foreach (var order in activeOrders)
         {
@@ -19,15 +31,15 @@ public class OrderReportService
         }
     }
 
+    public decimal CalculateTotalRevenue()
+    {
+        return _orderRepo.GetOrders()
+            .Where(o => o.Status != OrderStatus.Cancelled)
+            .Sum(o => o.Total);
+    }
+
     public void PrintTotalRevenue()
     {
-        decimal total = 0;
-        List<Order> allOrders = _orderRepo.GetOrders().Where(o => o.Status != OrderStatus.Cancelled).ToList();
-        foreach (var order in allOrders)
-        {
-            total += order.Total;
-        }
-
-        Console.WriteLine($"Total revenue (excluding cancelled orders): ${total}");
+        Console.WriteLine($"Total revenue (excluding cancelled orders): ${CalculateTotalRevenue()}");
     }
 }

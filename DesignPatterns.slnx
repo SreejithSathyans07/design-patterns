@@ -13,6 +13,9 @@
   <Folder Name="/02-repository-pattern/bad-approach/">
     <Project Path="02-repository-pattern/bad-approach/BadApproach.csproj" />
   </Folder>
+  <Folder Name="/02-repository-pattern/better-approach.Tests/">
+    <Project Path="02-repository-pattern/better-approach.Tests/BetterApproach.Tests.csproj" />
+  </Folder>
   <Folder Name="/02-repository-pattern/better-approach/">
     <Project Path="02-repository-pattern/better-approach/BetterApproach.csproj" />
   </Folder>
