@@ -1,7 +1,12 @@
 using BetterApproach;
 
-var orderService = new OrderService();
-var reportService = new OrderReportService();
+InMemoryOrderRepository inMemoryOrderRepository = new InMemoryOrderRepository();
+
+var orderService = new OrderService(inMemoryOrderRepository);
+var reportService = new OrderReportService(inMemoryOrderRepository);
+
+
+
 
 orderService.PlaceOrder("Jane Doe", 249.99m);
 orderService.PlaceOrder("Jane Doe", 59.00m);

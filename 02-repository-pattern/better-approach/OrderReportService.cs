@@ -2,19 +2,16 @@ namespace BetterApproach;
 
 public class OrderReportService
 {
-    // Needs orders too, so it reaches straight into OrderService's storage
-    // and writes its own, independent lookup logic against it.
+    private readonly IOrderRepository _orderRepo;
+    public OrderReportService(IOrderRepository repository)
+    {
+        _orderRepo = repository;
+    }
+    // Gets orders through the same IOrderRepository OrderService uses - no
+    // more reaching into OrderService's storage or duplicating lookup logic.
     public void PrintActiveOrdersFor(string customerName)
     {
-        var activeOrders = new List<Order>();
-        foreach (var order in OrderService.Orders)
-        {
-            if (order.CustomerName == customerName && order.Status != OrderStatus.Cancelled)
-            {
-                activeOrders.Add(order);
-            }
-        }
-
+        var activeOrders = _orderRepo.GetOrdersByCustomer(customerName).Where(o => o.Status != OrderStatus.Cancelled);
         Console.WriteLine($"Active orders for {customerName}:");
         foreach (var order in activeOrders)
         {
@@ -25,12 +22,10 @@ public class OrderReportService
     public void PrintTotalRevenue()
     {
         decimal total = 0;
-        foreach (var order in OrderService.Orders)
+        List<Order> allOrders = _orderRepo.GetOrders().Where(o => o.Status != OrderStatus.Cancelled).ToList();
+        foreach (var order in allOrders)
         {
-            if (order.Status != OrderStatus.Cancelled)
-            {
-                total += order.Total;
-            }
+            total += order.Total;
         }
 
         Console.WriteLine($"Total revenue (excluding cancelled orders): ${total}");
