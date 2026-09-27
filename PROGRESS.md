@@ -39,6 +39,9 @@ else without looking it up.
 - [ ] `better-approach.Tests` project created, referencing `better-approach`
 - [ ] Unit tests written using a fake `IOrderRepository`, without any real
       storage or duplicated query logic
+- [ ] Noticed OrderReportService's Print* methods were untestable (void,
+      Console-only - same smell as pattern 01's bad-approach) and split
+      each into a computation method (testable) + a thin Print wrapper
 - [ ] `02-repository-pattern/README.md` filled in
 - [ ] **Pattern complete** - comfortable explaining why Repository removes
       duplication and enables swapping storage without touching business
