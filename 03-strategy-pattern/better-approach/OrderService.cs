@@ -2,8 +2,13 @@ namespace BetterApproach;
 
 public class OrderService
 {
-    private readonly NotificationService _notificationService = new();
+    private readonly NotificationService _notificationService;
     private int _nextId = 1;
+
+    public OrderService(NotificationService notificationService)
+    {
+        _notificationService = notificationService;
+    }
 
     public Order PlaceOrder(string customerName, string email, string phone, decimal total, bool isVip, bool prefersPush)
     {
