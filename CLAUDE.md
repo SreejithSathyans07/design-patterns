@@ -107,6 +107,11 @@ new domain per pattern:
 Update this list (check items off, reorder, add notes) as we complete each
 one, so future sessions know where we are.
 
+After each pattern is complete, add a row to `PATTERNS-SUMMARY.md` (problem /
+solution / core trigger) - it's the learner's running cheat-sheet comparing
+every pattern covered so far, and has already helped clarify the DI-vs-
+Strategy distinction once. Keep it current the same way as `PROGRESS.md`.
+
 ## Progress log
 
 Tracked in `PROGRESS.md`, not here, so there's a single source of truth.
