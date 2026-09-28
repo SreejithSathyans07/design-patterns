@@ -49,11 +49,27 @@ else without looking it up.
 
 ## 03 - Strategy
 
-- [ ] `bad-approach` scaffolded
-- [ ] `better-approach` copied and refactored
-- [ ] Tests added
-- [ ] README filled in
-- [ ] **Pattern complete**
+- [ ] `bad-approach` scaffolded (NotificationService picks a channel via an
+      if/else chain on order.IsVip/PrefersPushNotifications; ReminderService
+      independently duplicates that same decision and has already drifted -
+      it never learned about push notifications)
+- [ ] `better-approach` started as an exact copy of `bad-approach`
+- [ ] Step 1: extracted `INotificationStrategy` interface (one method:
+      send a message for an order)
+- [ ] Step 2: implemented `SmsNotificationStrategy`, `PushNotificationStrategy`,
+      `EmailNotificationStrategy` - each the old if/else branch's body,
+      now its own class
+- [ ] Step 3: built something that picks the right strategy per order
+      (foreshadows Factory, pattern #4)
+- [ ] Step 4: injected the strategy selection into `OrderService` and
+      `ReminderService` - both now share the exact same channel-selection
+      logic, so the divergence bug becomes structurally impossible
+- [ ] `better-approach.Tests` project created, tests written per strategy
+      and for the selection logic
+- [ ] `03-strategy-pattern/README.md` filled in
+- [ ] **Pattern complete** - comfortable explaining how Strategy differs
+      from just injecting one interface (DI, pattern 01) - here there are
+      multiple interchangeable implementations chosen at runtime
 
 ## 04 - Factory (Simple / Factory Method / Abstract Factory)
 

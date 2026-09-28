@@ -19,4 +19,11 @@
   <Folder Name="/02-repository-pattern/better-approach/">
     <Project Path="02-repository-pattern/better-approach/BetterApproach.csproj" />
   </Folder>
+  <Folder Name="/03-strategy-pattern/" />
+  <Folder Name="/03-strategy-pattern/bad-approach/">
+    <Project Path="03-strategy-pattern/bad-approach/BadApproach.csproj" />
+  </Folder>
+  <Folder Name="/03-strategy-pattern/better-approach/">
+    <Project Path="03-strategy-pattern/better-approach/BetterApproach.csproj" />
+  </Folder>
 </Solution>
